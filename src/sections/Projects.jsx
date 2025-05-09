@@ -1,0 +1,110 @@
+import { motion } from "framer-motion";
+
+const Projects = () => {
+  const projects = [
+    {
+      title: "halisahabul: Halısaha Kiralama Web sitesi",
+      description:
+        "Kullanıcıların 7/24 online olarak halı saha kiralamasına olanak tanıyan, MERN Stack (MongoDB, Express.js, React, Node.js) ile geliştirilmiş modern bir web uygulaması. Gerçek zamanlı rezervasyon yönetimi, kullanıcı doğrulama, anlık bildirimler ve sezgisel bir arayüz sunar.",
+      url: "https://halisahabul.com",
+    },
+    {
+      title: "IOS Uyumlu Hava Durumu Uygulaması",
+      description:
+        "SwiftUI ile inşa edilmiş, modern yenilikçi bir, hava durumu uygulaması. Kullanıcıların hava durumu bilgilerini hızlı ve kolay bir şekilde almasını sağlar.",
+      url: "https://github.com/BatiEng/Weather-App",
+    },
+    {
+      title: "React ve MongoDB ile E-ticaret Uygulaması",
+      description:
+        "Kullanıcı kimlik doğrulama, ürün yönetimi ve güvenli ödeme entegrasyonu içeren tam özellikli bir e-ticaret platformu.",
+      url: "https://github.com/BatiEng/e-commerce-full-stack",
+    },
+    {
+      title: "Cryptobase: Kripto Para Takip Uygulaması",
+      description:
+        "Kullanıcıların kripto para birimlerini takip etmelerini sağlayan, gerçek zamanlı fiyat güncellemeleri ve grafikler sunan bir uygulama.",
+      url: "https://github.com/BatiEng/Crypto-App",
+    },
+    {
+      title: "Borsatube: Borsa Eğitimi için Yeni Bir Platform",
+      description:
+        "Borsatube.com, borsa ve yatırım dünyasına adım atmak isteyenler için video dersler, analiz araçları ve topluluk desteği sunan bir eğitim platformudur.",
+      url: "https://borsatube.com",
+    },
+    {
+      title: "ToDo (Yapılacaklar Listesi) Uygulaması",
+      description:
+        "Firebase ile entegre edilmiş, kullanıcıların görevlerini yönetmelerine olanak tanıyan basit ve etkili bir yapılacaklar listesi uygulaması.",
+      url: "https://github.com/BatiEng/ToDoAppWithFirebase",
+    },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  return (
+    <section
+      id="projeler"
+      className="py-16 px-6 md:px-12 bg-gray-900 text-white"
+    >
+      <div className="max-w-5xl mx-auto">
+        <motion.h2
+          className="text-4xl md:text-5xl font-extrabold mb-10 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          Projeler
+        </motion.h2>
+        <motion.ul
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {projects.map((project, index) => (
+            <motion.li
+              key={index}
+              className="relative bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between min-h-[300px]"
+              variants={itemVariants}
+            >
+              <div>
+                <h3 className="text-xl font-semibold text-blue-400 mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-gray-300 mb-4 flex-grow">
+                  {project.description}
+                </p>
+              </div>
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-4 py-2 bg-blue-500 text-white font-medium rounded-full hover:bg-blue-600 transition-all duration-300 self-start"
+              >
+                Projeyi Gör
+              </a>
+            </motion.li>
+          ))}
+        </motion.ul>
+      </div>
+    </section>
+  );
+};
+
+export default Projects;

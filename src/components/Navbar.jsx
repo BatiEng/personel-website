@@ -6,11 +6,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: "Anasayfa", href: "anasayfa" },
-    { name: "Hakkımda", href: "hakkimda" },
-    { name: "Projeler", href: "projeler" },
-    { name: "Yetenekler", href: "yetenekler" },
-    { name: "İletişim", href: "iletisim" },
+    { name: "Anasayfa", href: "#anasayfa" },
+    { name: "Hakkımda", href: "#hakkimda" },
+    { name: "Projeler", href: "#projeler" },
+    { name: "Yetenekler", href: "#yetenekler" },
+    { name: "İletişim", href: "#iletisim" },
   ];
 
   const scrollToSection = (href) => {

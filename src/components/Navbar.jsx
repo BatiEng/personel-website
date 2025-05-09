@@ -6,97 +6,65 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: "Anasayfa", href: "#anasayfa" },
-    { name: "Hakkımda", href: "#hakkimda" },
-    { name: "Projeler", href: "#projeler" },
-    { name: "Yetenekler", href: "#yetenekler" },
-    { name: "İletişim", href: "#iletisim" },
+    { name: "Anasayfa", href: "anasayfa" },
+    { name: "Hakkımda", href: "hakkimda" },
+    { name: "Projeler", href: "projeler" },
+    { name: "Yetenekler", href: "yetenekler" },
+    { name: "İletişim", href: "iletisim" },
   ];
 
-  // Animation variants for desktop menu items
-  const desktopItemVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.1, duration: 0.3 },
-    }),
-  };
-
-  // Animation variants for mobile menu
-  const mobileMenuVariants = {
-    hidden: { opacity: 0, height: 0 },
-    visible: {
-      opacity: 1,
-      height: "auto",
-      transition: {
-        duration: 0.3,
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-      },
-    },
-    exit: { opacity: 0, height: 0, transition: { duration: 0.3 } },
-  };
-
-  // Animation variants for mobile menu items
-  const mobileItemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
+  const scrollToSection = (href) => {
+    const target = document.querySelector(href);
+    console.log("Scrolling to:", href, "Target:", target);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    } else {
+      console.error("Section not found:", href);
+    }
   };
 
   return (
     <nav className="bg-gray-900 shadow-lg fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo Icon */}
           <div className="flex-shrink-0">
             <a
               href="#anasayfa"
-              className="text-white hover:text-blue-400 transition-colors duration-300"
+              className="text-white hover:text-blue-400"
               onClick={(e) => {
                 e.preventDefault();
-                document
-                  .querySelector("#home")
-                  ?.scrollIntoView({ behavior: "smooth" });
+                scrollToSection("#anasayfa");
               }}
             >
               <FaCode className="h-8 w-8" />
             </a>
           </div>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex items-center">
             <ul className="flex space-x-8">
-              {navItems.map((item, index) => (
-                <motion.li
-                  key={item.name}
-                  custom={index}
-                  initial="hidden"
-                  animate="visible"
-                  variants={desktopItemVariants}
-                >
+              {navItems.map((item) => (
+                <li key={item.name}>
                   <a
                     href={item.href}
-                    className="text-white hover:bg-white/10 hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 relative group"
+                    className="text-white hover:bg-white/10 hover:text-blue-400 px-3 py-2 rounded-md"
                     onClick={(e) => {
                       e.preventDefault();
-                      document
-                        .querySelector(item.href)
-                        ?.scrollIntoView({ behavior: "smooth" });
+                      scrollToSection(item.href);
                     }}
                   >
                     {item.name}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
                   </a>
-                </motion.li>
+                </li>
               ))}
             </ul>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => {
+                console.log("Menu toggle, isOpen:", !isOpen);
+                setIsOpen(!isOpen);
+              }}
               className="text-white hover:bg-white/10 p-2 rounded-md"
               aria-label="Toggle menu"
             >
@@ -126,38 +94,27 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              className="md:hidden"
-              variants={mobileMenuVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              <ul className="px-2 pt-2 pb-3 space-y-1">
-                {navItems.map((item) => (
-                  <motion.li key={item.name} variants={mobileItemVariants}>
-                    <a
-                      href={item.href}
-                      className="text-white hover:bg-white/10 hover:text-blue-400 block px-3 py-2 rounded-md text-base font-medium transition-all duration-300"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setIsOpen(false);
-                        document
-                          .querySelector(item.href)
-                          ?.scrollIntoView({ behavior: "smooth" });
-                      }}
-                    >
-                      {item.name}
-                    </a>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {isOpen && (
+          <div className="md:hidden bg-gray-800">
+            <ul className="px-2 pt-2 pb-3 space-y-1">
+              {navItems.map((item) => (
+                <li key={item.name}>
+                  <a
+                    href={item.href}
+                    className="text-white hover:bg-white/10 hover:text-blue-400 block px-3 py-2 rounded-md"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsOpen(false);
+                      scrollToSection(item.href);
+                    }}
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </nav>
   );

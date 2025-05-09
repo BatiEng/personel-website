@@ -55,7 +55,7 @@ const Home = () => {
         </motion.p>
         <motion.div className="mt-8" variants={itemVariants}>
           <a
-            href="#contact"
+            href="#iletisim"
             className="inline-block px-6 py-3 bg-blue-500 text-white font-semibold rounded-full hover:bg-blue-600 transition-all duration-300 transform hover:scale-105"
           >
             İletişime Geç

@@ -5,6 +5,11 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 const Skills = () => {
   const skills = [
     "React",
+    "React Native",
+    "TypeScript",
+    "Tailwind CSS",
+    "Nativewind CSS",
+    "Next.js",
     "Node.js",
     "MongoDB",
     "Swift",
@@ -18,7 +23,6 @@ const Skills = () => {
     "SQL",
     "HTML",
     "CSS",
-    "Tailwind CSS",
     "Bootstrap",
     "Express.js",
     "Redux",

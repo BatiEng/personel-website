@@ -42,18 +42,18 @@ const About = () => {
             Merhaba! Ben Ali Batıkan Öcal, Ege Üniversitesi Bilgisayar
             Mühendisliği öğrencisiyim ve 3 yılı aşkın süredir web ve mobil
             uygulama geliştirme ile ilgileniyorum. Yazılım yolculuğuma genç
-            yaşta başladım, bu süreçte e-ticaret platformlarından halı saha
-            kiralama uygulamalarına kadar çeşitli projeler geliştirdim.
+            yaşta başladım, bu süreçte e-ticaret platformlarından çeşitli mobil
+            uygulamalara kadar birçok proje geliştirdim.
           </motion.p>
           <motion.p
             className="text-lg md:text-xl leading-relaxed mt-4 text-gray-300"
             variants={itemVariants}
           >
             MERN stack (MongoDB, Express, React, Node.js) ile full-stack
-            projeler üretirken, Swift ve SwiftUI kullanarak iOS uygulamaları
-            geliştiriyorum. Firebase, Redux Toolkit, MongoDB ve Cloudinary gibi
-            modern teknolojilerle kullanıcı dostu, işlevsel uygulamalar
-            tasarlamaktan keyif alıyorum.
+            projeler üretirken, Swift, SwiftUI ve React Native kullanarak iOS ve
+            cross-platform mobil uygulamalar geliştiriyorum. Firebase, Redux
+            Toolkit, MongoDB ve Cloudinary gibi modern teknolojilerle kullanıcı
+            dostu, işlevsel uygulamalar tasarlamaktan keyif alıyorum.
           </motion.p>
           <motion.p
             className="text-lg md:text-xl leading-relaxed mt-4 text-gray-300"
@@ -62,8 +62,7 @@ const About = () => {
             Amacım, gerçek problemlere yenilikçi çözümler sunmak ve kullanıcı
             deneyimini ön planda tutan yazılımlar geliştirmek. Kod yazmadığım
             zamanlarda yeni teknolojileri keşfediyor, GitHub'da projelerimi
-            paylaşıyor ya da futbol sahasında ter atıyorum. Haydi, birlikte
-            harika projelere imza atalım!
+            paylaşıyorum. Haydi, birlikte harika projelere imza atalım!
           </motion.p>
           <motion.div className="mt-8" variants={itemVariants}>
             <a

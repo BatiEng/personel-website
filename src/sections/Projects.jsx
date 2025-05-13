@@ -118,9 +118,8 @@ const Projects = () => {
           <div className="mt-8 text-center">
             <button
               onClick={() => setShowAll(!showAll)}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-700 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 text-white font-semibold rounded-full hover:bg-purple-700 transition-all duration-300"
             >
-              {showAll ? "Daha Az Göster" : "Tümünü Göster"}
               {showAll ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
             </button>
           </div>

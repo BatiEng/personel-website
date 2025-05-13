@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { ChevronDown, ChevronUp } from "lucide-react"; // optional: using lucide icons
 
 const Projects = () => {
+  const [showAll, setShowAll] = useState(false);
+
   const projects = [
     {
       title: "halisahabul: Halısaha Kiralama Web sitesi",
@@ -46,6 +50,8 @@ const Projects = () => {
     },
   ];
 
+  const visibleProjects = showAll ? projects : projects.slice(0, 6);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -83,7 +89,7 @@ const Projects = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {projects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <motion.li
               key={index}
               className="relative bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between min-h-[300px]"
@@ -108,6 +114,17 @@ const Projects = () => {
             </motion.li>
           ))}
         </motion.ul>
+        {projects.length > 6 && (
+          <div className="mt-8 text-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-700 transition-all duration-300"
+            >
+              {showAll ? "Daha Az Göster" : "Tümünü Göster"}
+              {showAll ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

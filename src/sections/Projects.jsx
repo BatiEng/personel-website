@@ -9,10 +9,16 @@ const Projects = () => {
       url: "https://halisahabul.com",
     },
     {
-      title: "IOS Uyumlu Hava Durumu Uygulaması",
+      title: "Hava Durumu Uygulaması (SwiftUI)",
       description:
         "SwiftUI ile inşa edilmiş, modern yenilikçi bir, hava durumu uygulaması. Kullanıcıların hava durumu bilgilerini hızlı ve kolay bir şekilde almasını sağlar.",
       url: "https://github.com/BatiEng/Weather-App",
+    },
+    {
+      title: "CineTrack: React Native Film Uygulaması",
+      description:
+        "Kullanıcıların en güncel filmleri keşfedebileceği, detaylı film bilgilerini görüntüleyebileceği ve favori listesi oluşturabileceği modern bir mobil uygulama. React Native ile geliştirilen bu uygulama, sezgisel arayüzü ve API tabanlı veri çekme özellikleriyle sinema severler için ideal bir deneyim sunar.",
+      url: "https://github.com/BatiEng/movie-app",
     },
     {
       title: "React ve MongoDB ile E-ticaret Uygulaması",

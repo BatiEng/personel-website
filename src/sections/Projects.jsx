@@ -1,9 +1,10 @@
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { ChevronDown, ChevronUp } from "lucide-react"; // optional: using lucide icons
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const Projects = () => {
-  const [showAll, setShowAll] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const initialCount = 6;
 
   const projects = [
     {
@@ -50,7 +51,9 @@ const Projects = () => {
     },
   ];
 
-  const visibleProjects = showAll ? projects : projects.slice(0, 6);
+  const displayedProjects = isExpanded
+    ? projects
+    : projects.slice(0, initialCount);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -65,6 +68,7 @@ const Projects = () => {
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    exit: { opacity: 0, y: 20, transition: { duration: 0.3 } },
   };
 
   return (
@@ -82,6 +86,7 @@ const Projects = () => {
         >
           Projeler
         </motion.h2>
+
         <motion.ul
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
@@ -89,40 +94,57 @@ const Projects = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {visibleProjects.map((project, index) => (
-            <motion.li
-              key={index}
-              className="relative bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between min-h-[300px]"
-              variants={itemVariants}
-            >
-              <div>
-                <h3 className="text-xl font-semibold text-blue-400 mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-gray-300 mb-4 flex-grow">
-                  {project.description}
-                </p>
-              </div>
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-4 py-2 bg-blue-500 text-white font-medium rounded-full hover:bg-blue-600 transition-all duration-300 self-start"
+          <AnimatePresence>
+            {displayedProjects.map((project, index) => (
+              <motion.li
+                key={project.title}
+                className="relative bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between min-h-[300px]"
+                variants={itemVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                layout
               >
-                Projeyi Gör
-              </a>
-            </motion.li>
-          ))}
+                <div>
+                  <h3 className="text-xl font-semibold text-blue-400 mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-300 mb-4 flex-grow">
+                    {project.description}
+                  </p>
+                </div>
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-4 py-2 bg-blue-500 text-white font-medium rounded-full hover:bg-blue-600 transition-all duration-300 self-start"
+                >
+                  Projeyi Gör
+                </a>
+              </motion.li>
+            ))}
+          </AnimatePresence>
         </motion.ul>
-        {projects.length > 6 && (
-          <div className="mt-8 text-center">
+
+        {projects.length > initialCount && (
+          <motion.div
+            className="mt-8 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
             <button
-              onClick={() => setShowAll(!showAll)}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 text-white font-semibold rounded-full hover:bg-purple-700 transition-all duration-300"
+              onClick={() => setIsExpanded(!isExpanded)}
+              aria-label={
+                isExpanded ? "Projeleri Gizle" : "Daha Fazla Proje Göster"
+              }
+              aria-expanded={isExpanded}
+              className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-500 text-white hover:bg-blue-600 transition-all duration-300 transform hover:scale-110 motion-reduce:transform-none shadow-lg"
             >
-              {showAll ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+              {isExpanded ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
             </button>
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

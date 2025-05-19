@@ -38,6 +38,12 @@ const Projects = () => {
       url: "https://github.com/BatiEng/Crypto-App",
     },
     {
+      title: "Bookstore: Book recommendations app",
+      description:
+        "Kullanıcıların okuduklarını diğer kullanıcılarla paylaşabildiği sosyal bir uygulama.",
+      url: "https://github.com/BatiEng/react-native-book-store-app",
+    },
+    {
       title: "Borsatube: Borsa Eğitimi için Yeni Bir Platform",
       description:
         "Borsatube.com, borsa ve yatırım dünyasına adım atmak isteyenler için video dersler, analiz araçları ve topluluk desteği sunan bir eğitim platformudur.",

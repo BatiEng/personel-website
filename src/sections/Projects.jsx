@@ -14,16 +14,16 @@ const Projects = () => {
       url: "https://halisahabul.com",
     },
     {
-      title: "Hava Durumu Uygulaması (SwiftUI)",
+      title: "Hava Durumu Uygulaması (Mobile App)",
       description:
         "SwiftUI ile inşa edilmiş, modern yenilikçi bir, hava durumu uygulaması. Kullanıcıların hava durumu bilgilerini hızlı ve kolay bir şekilde almasını sağlar.",
       url: "https://github.com/BatiEng/Weather-App",
     },
     {
-      title: "CineTrack: React Native Film Uygulaması",
+      title: "CineTrack: React Native Film Uygulaması (Mobile App)",
       description:
         "Kullanıcıların en güncel filmleri keşfedebileceği, detaylı film bilgilerini görüntüleyebileceği ve favori listesi oluşturabileceği modern bir mobil uygulama. React Native ile geliştirilen bu uygulama, sezgisel arayüzü ve API tabanlı veri çekme özellikleriyle sinema severler için ideal bir deneyim sunar.",
-      url: "https://github.com/BatiEng/movie-app",
+      url: "https://github.com/BatiEng/movie-app-react-native",
     },
     {
       title: "React ve MongoDB ile E-ticaret Uygulaması",
@@ -32,13 +32,13 @@ const Projects = () => {
       url: "https://github.com/BatiEng/e-commerce-full-stack",
     },
     {
-      title: "Cryptobase: Kripto Para Takip Uygulaması",
+      title: "Cryptobase: Kripto Para Takip Uygulaması (Mobile App)",
       description:
         "Kullanıcıların kripto para birimlerini takip etmelerini sağlayan, gerçek zamanlı fiyat güncellemeleri ve grafikler sunan bir uygulama.",
       url: "https://github.com/BatiEng/Crypto-App",
     },
     {
-      title: "Bookstore: Book recommendations app",
+      title: "Bookstore: Book recommendations app (Mobile App)",
       description:
         "Kullanıcıların okuduklarını diğer kullanıcılarla paylaşabildiği sosyal bir uygulama.",
       url: "https://github.com/BatiEng/react-native-book-store-app",
@@ -50,7 +50,7 @@ const Projects = () => {
       url: "https://borsatube.com",
     },
     {
-      title: "ToDo (Yapılacaklar Listesi) Uygulaması",
+      title: "ToDo (Yapılacaklar Listesi) Uygulaması (Mobile App)",
       description:
         "Firebase ile entegre edilmiş, kullanıcıların görevlerini yönetmelerine olanak tanıyan basit ve etkili bir yapılacaklar listesi uygulaması.",
       url: "https://github.com/BatiEng/ToDoAppWithFirebase",
